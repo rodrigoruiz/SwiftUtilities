@@ -13,10 +13,10 @@
 		652FF127D19BD13FA220CAF957302ABF /* Pods-SwiftUtilities_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 724A4A712D847C0868259C21B2185DC1 /* Pods-SwiftUtilities_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		715833397B0AA486A40F174C7D729C41 /* SwiftUtilities-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = AF53D84BD80530030BAA6F4EE6F67A65 /* SwiftUtilities-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		77591EF928BE5D5E920CDA7DFE63361E /* Pods-SwiftUtilities_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A3156D3DD64E756925ECB3AC6AF45031 /* Pods-SwiftUtilities_Example-dummy.m */; };
-		8F279E9404442A154D8453BC0A5E2FFB /* SwiftUtilities-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A78BB3003436D739A595CCB24B1148A5 /* SwiftUtilities-dummy.m */; };
+		7A08F63DCA728BAA94C65C48069104C2 /* SwiftUtilities-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A78BB3003436D739A595CCB24B1148A5 /* SwiftUtilities-dummy.m */; };
 		C6A40A220C7A7320626790882873BAF3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
-		CC4B02EB2B29B22E904C3CBF7EA94356 /* ReplaceMe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7C118991D8A11F4A0B84A2FD437986 /* ReplaceMe.swift */; };
 		DC0017F36A627E0623DA81987323CCD4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
+		F489ABAC9DA5ACBCD510E2E7238811E0 /* SwiftUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2443A40BB500EAAC2C83D5935493C332 /* SwiftUtilities.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,13 +32,13 @@
 /* Begin PBXFileReference section */
 		165D757C1F7B808AEC5455DEE9CBBBD6 /* Pods_SwiftUtilities_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_SwiftUtilities_Example.framework; path = "Pods-SwiftUtilities_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2035AA42ABF467EA3CCBA81B2CFB3685 /* SwiftUtilities.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftUtilities.xcconfig; sourceTree = "<group>"; };
+		2443A40BB500EAAC2C83D5935493C332 /* SwiftUtilities.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SwiftUtilities.swift; sourceTree = "<group>"; };
 		31BC3D313BCDBA4D4E2A84C220D9F3F0 /* Pods-SwiftUtilities_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-SwiftUtilities_Example-umbrella.h"; sourceTree = "<group>"; };
 		366DB8939992DE7CD1F51C355171E5DC /* Pods-SwiftUtilities_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SwiftUtilities_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		3A0E9EC61B2511B13EEB03D1702482D3 /* Pods-SwiftUtilities_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SwiftUtilities_Example-frameworks.sh"; sourceTree = "<group>"; };
 		439F343AC37B91E29DCE1A6BCD2B02E9 /* Pods-SwiftUtilities_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SwiftUtilities_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
 		45BC90995EFE9DD11817AA6FF39AF533 /* Pods-SwiftUtilities_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-SwiftUtilities_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		4698F56D1613F878F269D70D2F4A7F0E /* Pods_SwiftUtilities_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_SwiftUtilities_Tests.framework; path = "Pods-SwiftUtilities_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		4A7C118991D8A11F4A0B84A2FD437986 /* ReplaceMe.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ReplaceMe.swift; sourceTree = "<group>"; };
 		59713E39FD275FBB3B5C1979A9D0F962 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		724A4A712D847C0868259C21B2185DC1 /* Pods-SwiftUtilities_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-SwiftUtilities_Tests-umbrella.h"; sourceTree = "<group>"; };
@@ -119,19 +119,10 @@
 		75C629F34D0F62A912EE7C32C3A516F6 /* SwiftUtilities */ = {
 			isa = PBXGroup;
 			children = (
-				7801CA7797208BA51C02489F145ABD46 /* Classes */,
+				C61BEFD68EE94F0A6F0DCEA47B57C2F2 /* Classes */,
 			);
 			name = SwiftUtilities;
 			path = SwiftUtilities;
-			sourceTree = "<group>";
-		};
-		7801CA7797208BA51C02489F145ABD46 /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				4A7C118991D8A11F4A0B84A2FD437986 /* ReplaceMe.swift */,
-			);
-			name = Classes;
-			path = Classes;
 			sourceTree = "<group>";
 		};
 		7DB346D0F39D3F0E887471402A8071AB = {
@@ -186,6 +177,15 @@
 				D35AF013A5F0BAD4F32504907A52519E /* iOS */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C61BEFD68EE94F0A6F0DCEA47B57C2F2 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				2443A40BB500EAAC2C83D5935493C332 /* SwiftUtilities.swift */,
+			);
+			name = Classes;
+			path = Classes;
 			sourceTree = "<group>";
 		};
 		D35AF013A5F0BAD4F32504907A52519E /* iOS */ = {
@@ -275,7 +275,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9E7EFC0EB13A51E0195693F9469028BF /* Build configuration list for PBXNativeTarget "SwiftUtilities" */;
 			buildPhases = (
-				51C9B61C354CF7B748B1BDC6D775C876 /* Sources */,
+				55A88209FB740E22E60C60D26BFF8430 /* Sources */,
 				918A423992972A03669D487B32BEE13E /* Frameworks */,
 				354C2A0675043DFA8D3A440E4B012E58 /* Headers */,
 			);
@@ -335,12 +335,12 @@
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		51C9B61C354CF7B748B1BDC6D775C876 /* Sources */ = {
+		55A88209FB740E22E60C60D26BFF8430 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CC4B02EB2B29B22E904C3CBF7EA94356 /* ReplaceMe.swift in Sources */,
-				8F279E9404442A154D8453BC0A5E2FFB /* SwiftUtilities-dummy.m in Sources */,
+				7A08F63DCA728BAA94C65C48069104C2 /* SwiftUtilities-dummy.m in Sources */,
+				F489ABAC9DA5ACBCD510E2E7238811E0 /* SwiftUtilities.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

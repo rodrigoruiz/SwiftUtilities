@@ -24,8 +24,8 @@ This library provides some helper functions and structures useful for Function P
   s.homepage         = 'https://github.com/rodrigoruiz/SwiftUtilities.git'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'rodrigo.ruiz7@gmail.com' => 'rodrigo.ruiz@hummingbird.com.br' }
-  s.source           = { :git => 'https://github.com/rodrigo.ruiz7@gmail.com/SwiftUtilities.git', :tag => s.version.to_s }
+  s.author           = { 'rodrigo.ruiz7@gmail.com' => 'rodrigo.ruiz7@gmail.com' }
+  s.source           = { :git => 'https://github.com/rodrigoruiz/SwiftUtilities.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '8.0'

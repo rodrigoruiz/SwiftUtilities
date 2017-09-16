@@ -1,15 +1,15 @@
 {
   "name": "SwiftUtilities",
   "version": "0.1.0",
-  "summary": "A short description of SwiftUtilities.",
-  "description": "TODO: Add long description of the pod here.",
-  "homepage": "https://github.com/rodrigo.ruiz7@gmail.com/SwiftUtilities",
+  "summary": "Generic Swift extensions and helper functions.",
+  "description": "This library provides some helper functions and structures useful for Function Programming.",
+  "homepage": "https://github.com/rodrigoruiz/SwiftUtilities.git",
   "license": {
     "type": "MIT",
     "file": "LICENSE"
   },
   "authors": {
-    "rodrigo.ruiz7@gmail.com": "rodrigo.ruiz@hummingbird.com.br"
+    "rodrigo.ruiz7@gmail.com": "rodrigo.ruiz7@gmail.com"
   },
   "source": {
     "git": "https://github.com/rodrigo.ruiz7@gmail.com/SwiftUtilities.git",
