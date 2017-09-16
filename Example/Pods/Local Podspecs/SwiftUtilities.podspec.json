@@ -12,11 +12,19 @@
     "rodrigo.ruiz7@gmail.com": "rodrigo.ruiz7@gmail.com"
   },
   "source": {
-    "git": "https://github.com/rodrigo.ruiz7@gmail.com/SwiftUtilities.git",
+    "git": "https://github.com/rodrigoruiz/SwiftUtilities.git",
     "tag": "0.1.0"
   },
   "platforms": {
     "ios": "8.0"
   },
-  "source_files": "SwiftUtilities/Classes/**/*"
+  "source_files": "SwiftUtilities/Classes/**/*",
+  "dependencies": {
+    "RxSwift": [
+      "~> 3.0"
+    ],
+    "SwiftyJSON": [
+
+    ]
+  }
 }
