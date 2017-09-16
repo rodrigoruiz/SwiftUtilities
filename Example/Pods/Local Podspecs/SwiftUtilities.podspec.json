@@ -1,0 +1,22 @@
+{
+  "name": "SwiftUtilities",
+  "version": "0.1.0",
+  "summary": "A short description of SwiftUtilities.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/rodrigo.ruiz7@gmail.com/SwiftUtilities",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "rodrigo.ruiz7@gmail.com": "rodrigo.ruiz@hummingbird.com.br"
+  },
+  "source": {
+    "git": "https://github.com/rodrigo.ruiz7@gmail.com/SwiftUtilities.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "SwiftUtilities/Classes/**/*"
+}
