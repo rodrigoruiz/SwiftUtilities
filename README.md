@@ -17,7 +17,7 @@ SwiftUtilities is available through [CocoaPods](http://cocoapods.org). To instal
 it, simply add the following line to your Podfile:
 
 ```ruby
-pod 'SwiftUtilities'
+pod 'SwiftUtilities', :git => 'https://github.com/rodrigoruiz/SwiftUtilities.git'
 ```
 
 ## Author

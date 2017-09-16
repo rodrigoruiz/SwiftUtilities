@@ -1,5 +1,9 @@
 PODS:
-  - SwiftUtilities (0.1.0)
+  - RxSwift (3.6.1)
+  - SwiftUtilities (0.1.0):
+    - RxSwift (~> 3.0)
+    - SwiftyJSON
+  - SwiftyJSON (3.1.4)
 
 DEPENDENCIES:
   - SwiftUtilities (from `../`)
@@ -9,8 +13,10 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  SwiftUtilities: 43dd9aa81f992953332bd37e55d7fee8a4a2e334
+  RxSwift: f9de85ea20cd2f7716ee5409fc13523dc638e4e4
+  SwiftUtilities: 92d22dbbc23a53a38ce62606401fdc300101a0ac
+  SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: 3c72acb8c345b2e815999b38ea7309e8ac70ab0d
+PODFILE CHECKSUM: e03ff896896c1746c5e33243415795a1b30bc3f6
 
 COCOAPODS: 1.2.1
