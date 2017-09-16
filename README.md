@@ -22,7 +22,7 @@ pod 'SwiftUtilities'
 
 ## Author
 
-rodrigo.ruiz7@gmail.com, rodrigo.ruiz@hummingbird.com.br
+rodrigo.ruiz7@gmail.com, rodrigo.ruiz7@gmail.com
 
 ## License
 
