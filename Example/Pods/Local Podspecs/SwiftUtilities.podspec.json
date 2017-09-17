@@ -1,6 +1,6 @@
 {
   "name": "SwiftUtilities",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "summary": "Generic Swift extensions and helper functions.",
   "description": "This library provides some helper functions and structures useful for Function Programming.",
   "homepage": "https://github.com/rodrigoruiz/SwiftUtilities.git",
@@ -9,22 +9,88 @@
     "file": "LICENSE"
   },
   "authors": {
-    "rodrigo.ruiz7@gmail.com": "rodrigo.ruiz7@gmail.com"
+    "Rodrigo Ruiz": "rodrigo.ruiz7@gmail.com"
   },
   "source": {
     "git": "https://github.com/rodrigoruiz/SwiftUtilities.git",
-    "tag": "0.1.0"
+    "tag": "1.0.0"
   },
+  "default_subspecs": "Complete",
   "platforms": {
-    "ios": "8.0"
+    "ios": "9.0"
   },
-  "source_files": "SwiftUtilities/Classes/**/*",
-  "dependencies": {
-    "RxSwift": [
-      "~> 3.0"
-    ],
-    "SwiftyJSON": [
+  "subspecs": [
+    {
+      "name": "Complete",
+      "dependencies": {
+        "SwiftUtilities/Lite": [
 
-    ]
-  }
+        ],
+        "SwiftUtilities/External": [
+
+        ],
+        "SwiftUtilities/Cocoa": [
+
+        ],
+        "SwiftUtilities/iOSDependencies": [
+
+        ]
+      }
+    },
+    {
+      "name": "Lite",
+      "source_files": "SwiftUtilities/Lite/**/*"
+    },
+    {
+      "name": "External",
+      "source_files": "SwiftUtilities/External/**/*",
+      "dependencies": {
+        "RxSwift": [
+          "~> 3.0"
+        ],
+        "SwiftyJSON": [
+
+        ]
+      }
+    },
+    {
+      "name": "Cocoa",
+      "platforms": {
+        "ios": "9.0"
+      },
+      "source_files": "SwiftUtilities/Cocoa/**/*",
+      "frameworks": [
+        "MessageUI",
+        "UIKit"
+      ],
+      "dependencies": {
+        "SwiftUtilities/Lite": [
+
+        ],
+        "RxCocoa": [
+          "~> 3.0"
+        ],
+        "RxSwift": [
+          "~> 3.0"
+        ]
+      }
+    },
+    {
+      "name": "iOSDependencies",
+      "dependencies": {
+        "ReSwift": [
+
+        ],
+        "RxCocoa": [
+          "~> 3.0"
+        ],
+        "RxSwift": [
+          "~> 3.0"
+        ],
+        "SwiftyJSON": [
+
+        ]
+      }
+    }
+  ]
 }
