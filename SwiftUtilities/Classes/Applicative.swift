@@ -6,9 +6,6 @@
 //  Copyright © 2017 Rodrigo Ruiz. All rights reserved.
 //
 
-import Foundation
-
-
 public protocol Applicative {
     
     associatedtype T

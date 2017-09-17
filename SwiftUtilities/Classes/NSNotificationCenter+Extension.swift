@@ -6,9 +6,6 @@
 //  Copyright © 2017 Rodrigo Ruiz. All rights reserved.
 //
 
-import Foundation
-
-
 public func postNotificaion(_ notification: String, userInfo: [AnyHashable: Any]? = nil) {
     NotificationCenter.default.post(name: NSNotification.Name(rawValue: notification), object: nil, userInfo: userInfo)
 }
