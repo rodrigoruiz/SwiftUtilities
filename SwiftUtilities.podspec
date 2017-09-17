@@ -24,21 +24,55 @@ This library provides some helper functions and structures useful for Function P
     s.homepage         = 'https://github.com/rodrigoruiz/SwiftUtilities.git'
     # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
     s.license          = { :type => 'MIT', :file => 'LICENSE' }
-    s.author           = { 'rodrigo.ruiz7@gmail.com' => 'rodrigo.ruiz7@gmail.com' }
+    s.author           = { 'Rodrigo Ruiz' => 'rodrigo.ruiz7@gmail.com' }
     s.source           = { :git => 'https://github.com/rodrigoruiz/SwiftUtilities.git', :tag => s.version.to_s }
     # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
-    
-    s.ios.deployment_target = '8.0'
-    
-    s.source_files = 'SwiftUtilities/Classes/**/*'
+    # s.ios.deployment_target = '9.0'
+    # s.source_files = 'SwiftUtilities/Classes/**/*'
+    s.default_subspec = 'Complete'
     
     # s.resource_bundles = {
     #   'SwiftUtilities' => ['SwiftUtilities/Assets/*.png']
     # }
     
     # s.public_header_files = 'Pod/Classes/**/*.h'
-    # s.frameworks = 'UIKit', 'MapKit'
     
-    s.dependency 'RxSwift', '~> 3.0'
-    s.dependency 'SwiftyJSON'
+    s.subspec 'Complete' do |subspec|
+        subspec.dependency 'SwiftUtilities/Lite'
+        subspec.dependency 'SwiftUtilities/External'
+        subspec.dependency 'SwiftUtilities/Cocoa'
+        subspec.dependency 'SwiftUtilities/iOSDependencies'
+    end
+    
+    s.subspec 'Lite' do |subspec|
+        s.ios.deployment_target = '9.0'
+        subspec.source_files = 'SwiftUtilities/Lite/**/*'
+    end
+    
+    s.subspec 'External' do |subspec|
+        subspec.source_files = 'SwiftUtilities/External/**/*'
+        subspec.dependency 'RxSwift', '~> 3.0'
+        subspec.dependency 'SwiftyJSON'
+    end
+    
+    s.subspec 'Cocoa' do |subspec|
+        subspec.ios.deployment_target = '9.0'
+        subspec.source_files = 'SwiftUtilities/Cocoa/**/*'
+        subspec.frameworks = 'MessageUI', 'UIKit'
+        subspec.dependency 'SwiftUtilities/Lite'
+        subspec.dependency 'RxCocoa', '~> 3.0'
+        subspec.dependency 'RxSwift', '~> 3.0'
+    end
+    
+    s.subspec 'iOSDependencies' do |subspec|
+        subspec.dependency 'ReSwift'
+        subspec.dependency 'RxCocoa', '~> 3.0'
+        subspec.dependency 'RxSwift', '~> 3.0'
+        subspec.dependency 'SwiftyJSON'
+        
+        #  pod 'SlackTextViewController'
+        #  pod 'Kingfisher'
+        #  pod 'SwiftyTimer', git: 'https://github.com/radex/SwiftyTimer.git', branch: 'swift3'
+        #  pod 'Cartography', :git => 'https://github.com/alexiosdev/Cartography.git', :branch => 'swift3_alex'
+    end
 end
