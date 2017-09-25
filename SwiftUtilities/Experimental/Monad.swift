@@ -1,6 +1,6 @@
 //
 //  Monad.swift
-//  MyLibrary
+//  SwiftUtilities
 //
 //  Created by Rodrigo Ruiz on 7/20/17.
 //  Copyright © 2017 Rodrigo Ruiz. All rights reserved.

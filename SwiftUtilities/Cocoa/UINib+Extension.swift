@@ -1,6 +1,6 @@
 //
 //  UINib+Extension.swift
-//  MyLibrary
+//  SwiftUtilities
 //
 //  Created by Rodrigo Ruiz on 6/29/17.
 //  Copyright © 2017 Rodrigo Ruiz. All rights reserved.
