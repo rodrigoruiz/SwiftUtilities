@@ -2,7 +2,7 @@
 //  ViewController.swift
 //  SwiftUtilities
 //
-//  Created by rodrigo.ruiz7@gmail.com on 09/16/2017.
+//  Created by Rodrigo Ruiz on 09/16/2017.
 //  Copyright (c) 2017 rodrigo.ruiz7@gmail.com. All rights reserved.
 //
 

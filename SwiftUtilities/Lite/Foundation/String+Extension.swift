@@ -18,19 +18,7 @@ extension String {
     }
     
     public subscript(range: Range<Int>) -> String {
-        let lowerIndex = index(
-            startIndex,
-            offsetBy: max(0, range.lowerBound),
-            limitedBy: endIndex
-        ) ?? endIndex
-        
-        let upperIndex = index(
-            startIndex,
-            offsetBy: range.upperBound,
-            limitedBy: endIndex
-        ) ?? endIndex
-        
-        return substring(with: lowerIndex..<upperIndex)
+        return substring(with: range)
     }
     
     public subscript(range: ClosedRange<Int>) -> String {
@@ -58,18 +46,18 @@ extension String {
     
     public func substring(from: Int) -> String {
         let fromIndex = index(from: from)
-        return substring(from: fromIndex)
+        return String(self[fromIndex...])
     }
     
     public func substring(to: Int) -> String {
         let toIndex = index(from: to)
-        return substring(to: toIndex)
+        return String(self[..<toIndex])
     }
     
-    public func substring(with r: Range<Int>) -> String {
-        let startIndex = index(from: r.lowerBound)
-        let endIndex = index(from: r.upperBound)
-        return substring(with: startIndex..<endIndex)
+    public func substring(with range: Range<Int>) -> String {
+        let startIndex = index(from: range.lowerBound)
+        let endIndex = index(from: range.upperBound)
+        return String(self[startIndex..<endIndex])
     }
     
     public func split(_ separator: String) -> [String] {

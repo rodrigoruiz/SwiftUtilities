@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
     s.name             = 'SwiftUtilities'
-    s.version          = '1.0.0'
+    s.version          = '1.2.0'
     s.summary          = 'Generic Swift extensions and helper functions.'
     
     # This description is used to generate tags and improve search results.
@@ -51,7 +51,7 @@ This library provides some helper functions and structures useful for Function P
     
     s.subspec 'External' do |subspec|
         subspec.source_files = 'SwiftUtilities/External/**/*'
-        subspec.dependency 'RxSwift', '~> 3.0'
+        subspec.dependency 'RxSwift', '~> 4.0.0-beta.0'
         subspec.dependency 'SwiftyJSON'
     end
     
@@ -60,14 +60,14 @@ This library provides some helper functions and structures useful for Function P
         subspec.source_files = 'SwiftUtilities/Cocoa/**/*'
         subspec.frameworks = 'MessageUI', 'UIKit'
         subspec.dependency 'SwiftUtilities/Lite'
-        subspec.dependency 'RxCocoa', '~> 3.0'
-        subspec.dependency 'RxSwift', '~> 3.0'
+        subspec.dependency 'RxCocoa', '~> 4.0.0-beta.0'
+        subspec.dependency 'RxSwift', '~> 4.0.0-beta.0'
     end
     
     s.subspec 'iOSDependencies' do |subspec|
         subspec.dependency 'ReSwift'
-        subspec.dependency 'RxCocoa', '~> 3.0'
-        subspec.dependency 'RxSwift', '~> 3.0'
+        subspec.dependency 'RxCocoa', '~> 4.0.0-beta.0'
+        subspec.dependency 'RxSwift', '~> 4.0.0-beta.0'
         subspec.dependency 'SwiftyJSON'
         
         #  pod 'SlackTextViewController'

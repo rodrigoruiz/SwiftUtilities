@@ -9,14 +9,14 @@
 extension NSAttributedString {
     
     public static func attributedString(with text: String, font: UIFont? = nil, color: UIColor? = nil) -> NSAttributedString {
-        var attributes = [String: Any]()
+        var attributes = [NSAttributedStringKey: Any]()
         
         if let font = font {
-            attributes[NSFontAttributeName] = font
+            attributes[NSAttributedStringKey.font] = font
         }
         
         if let color = color {
-            attributes[NSForegroundColorAttributeName] = color
+            attributes[NSAttributedStringKey.foregroundColor] = color
         }
         
         return NSAttributedString(string: text, attributes: attributes)
