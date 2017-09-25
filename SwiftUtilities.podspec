@@ -49,6 +49,11 @@ This library provides some helper functions and structures useful for Function P
         subspec.source_files = 'SwiftUtilities/Lite/**/*'
     end
     
+    s.subspec 'Experimental' do |subspec|
+        subspec.source_files = 'SwiftUtilities/Experimental/**/*'
+        subspec.dependency 'SwiftUtilities/Lite'
+    end
+    
     s.subspec 'External' do |subspec|
         subspec.source_files = 'SwiftUtilities/External/**/*'
         subspec.dependency 'RxSwift', '~> 4.0.0-beta.0'
