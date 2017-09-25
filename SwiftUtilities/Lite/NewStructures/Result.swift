@@ -27,6 +27,19 @@ public enum Result<S, F> {
         return nil
     }
     
+    public func flatMap<S2>(_ transform: (S) -> Result<S2, F>) -> Result<S2, F> {
+        switch self {
+        case let .success(s):
+            return transform(s)
+        case let .failure(f):
+            return .failure(f)
+        }
+    }
+    
+    public func map<S2>(_ transform: (S) -> S2) -> Result<S2, F> {
+        return flatMap({ .success(transform($0)) })
+    }
+    
     public func flatMapFailure<F2>(_ transform: (F) -> Result<S, F2>) -> Result<S, F2> {
         switch self {
         case let .success(s):
@@ -37,9 +50,7 @@ public enum Result<S, F> {
     }
     
     public func mapFailure<F2>(_ transform: @escaping (F) -> F2) -> Result<S, F2> {
-        return flatMapFailure({ v in
-            return Result<S, F2>.failure(transform(v))
-        })
+        return flatMapFailure({ .failure(transform($0)) })
     }
     
     public func mapToValue<V>(_ successTransform: (S) -> V, _ failureTransform: (F) -> V) -> V {
@@ -51,68 +62,53 @@ public enum Result<S, F> {
         }
     }
     
-}
-
-extension Result: Monad {
-    
-    public static func unit(_ value: S) -> Result<S, F> {
-        return Result.success(value)
+    public func mapToVoid() -> Result<Void, F> {
+        return map({ _ in })
     }
     
-    public func flatMap<M: Monad>(_ transform: (S) -> M) -> M {
-        switch self {
-        case let .success(s):
-            return transform(s)
-        case let .failure(f):
-            return Result<M.T, F>.failure(f) as! M
-        }
+    public func mapFailureToVoid() -> Result<S, Void> {
+        return mapFailure({ _ in })
     }
     
 }
 
 public func getSuccess<S, F>(_ result: Result<S, F>) -> S? {
-    if case let .success(s) = result {
-        return s
-    }
-    
-    return nil
+    return result.getSuccess()
 }
 
 public func getFailure<S, F>(_ result: Result<S, F>) -> F? {
-    if case let .failure(f) = result {
-        return f
-    }
-    
-    return nil
+    return result.getFailure()
+}
+
+public func flatMap<S, F, S2>(_ transform: @escaping (S) -> Result<S2, F>) -> (Result<S, F>) -> Result<S2, F> {
+    return { $0.flatMap(transform) }
+}
+
+public func map<S, F, S2>(_ transform: @escaping (S) -> S2) -> (Result<S, F>) -> Result<S2, F> {
+    return { $0.map(transform) }
 }
 
 func flatMapFailure<S, F, F2>(_ transform: @escaping (F) -> Result<S, F2>) -> (Result<S, F>) -> Result<S, F2> {
-    return { result in
-        return result.flatMapFailure(transform)
-    }
+    return { $0.flatMapFailure(transform) }
 }
 
 public func mapFailure<S, F, F2>(_ transform: @escaping (F) -> F2) -> (Result<S, F>) -> Result<S, F2> {
-    return { result in
-        return result.mapFailure(transform)
-    }
+    return { $0.mapFailure(transform) }
 }
 
 public func mapToValue<S, F, V>(
     _ successTransform: @escaping (S) -> V,
     _ failureTransform: @escaping (F) -> V
 ) -> (Result<S, F>) -> V {
-    return { result in
-        return result.mapToValue(successTransform, failureTransform)
-    }
+    return { $0.mapToValue(successTransform, failureTransform) }
 }
 
 public func mapToVoid<S, F>(_ result: Result<S, F>) -> Result<Void, F> {
-    return result.map({ _ in })
+    return result.mapToVoid()
 }
 
 public func mapFailureToVoid<S, F>(_ result: Result<S, F>) -> Result<S, Void> {
-    return result.mapFailure({ _ in })
+    return result.mapFailureToVoid()
 }
 
 public func reduceResults<S, F, S2>(_ initialResultValue: S2, _ nextPartialResultValue: @escaping (S2, S) -> S2) -> ([Result<S, F>]) -> Result<S2, F> {
