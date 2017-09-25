@@ -22,7 +22,7 @@ pod 'SwiftUtilities', :git => 'https://github.com/rodrigoruiz/SwiftUtilities.git
 
 ## Author
 
-rodrigo.ruiz7@gmail.com, rodrigo.ruiz7@gmail.com
+Rodrigo Ruiz, rodrigo.ruiz7@gmail.com
 
 ## License
 

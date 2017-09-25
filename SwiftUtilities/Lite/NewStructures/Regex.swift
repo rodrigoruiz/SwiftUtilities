@@ -38,7 +38,7 @@ public struct Regex {
                 full: (range: match.range, string: string[match.range]),
                 groups: 1 <= lastIndex ?
                     (1...lastIndex)
-                        .map(match.rangeAt)
+                        .map(match.range)
                         .map({ (range: $0, string: string[$0]) })
                     : []
             )

@@ -14,29 +14,34 @@ import RxSwift
 #endif
 
 /// For more information take a look at `DelegateProxyType`.
-public class RxTabBarDelegateProxy
-    : DelegateProxy
-    , UITabBarDelegate
-    , DelegateProxyType {
+open class RxTabBarDelegateProxy
+    : DelegateProxy<UITabBar, UITabBarDelegate>
+    , DelegateProxyType 
+    , UITabBarDelegate {
 
-    /// For more information take a look at `DelegateProxyType`.
-    public class func currentDelegateFor(_ object: AnyObject) -> AnyObject? {
-        let tabBar: UITabBar = castOrFatalError(object)
-        return tabBar.delegate
+    /// Typed parent object.
+    public weak private(set) var tabBar: UITabBar?
+
+    /// - parameter parentObject: Parent object for delegate proxy.
+    public init(parentObject: ParentObject) {
+        self.tabBar = parentObject
+        super.init(parentObject: parentObject, delegateProxy: RxTabBarDelegateProxy.self)
+    }
+
+    // Register known implementations
+    public static func registerKnownImplementations() {
+        self.register { RxTabBarDelegateProxy(parentObject: $0) }
     }
 
     /// For more information take a look at `DelegateProxyType`.
-    public class func setCurrentDelegate(_ delegate: AnyObject?, toObject object: AnyObject) {
-        let tabBar: UITabBar = castOrFatalError(object)
-        tabBar.delegate = castOptionalOrFatalError(delegate)
+    open class func currentDelegate(for object: ParentObject) -> UITabBarDelegate? {
+        return object.delegate
     }
 
     /// For more information take a look at `DelegateProxyType`.
-    public override class func createProxyForObject(_ object: AnyObject) -> AnyObject {
-        let tabBar: UITabBar = castOrFatalError(object)
-        return tabBar.createRxDelegateProxy()
+    open class func setCurrentDelegate(_ delegate: UITabBarDelegate?, to object: ParentObject) {
+        object.delegate = delegate
     }
-
 }
 
 #endif

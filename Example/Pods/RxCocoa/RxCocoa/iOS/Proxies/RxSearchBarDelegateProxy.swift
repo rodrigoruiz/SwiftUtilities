@@ -14,33 +14,36 @@ import RxSwift
 #endif
 
 /// For more information take a look at `DelegateProxyType`.
-public class RxSearchBarDelegateProxy
-    : DelegateProxy
-    , UISearchBarDelegate
-    , DelegateProxyType {
+open class RxSearchBarDelegateProxy
+    : DelegateProxy<UISearchBar, UISearchBarDelegate>
+    , DelegateProxyType 
+    , UISearchBarDelegate {
 
-    /// For more information take a look at `DelegateProxyType`.
-    public class func currentDelegateFor(_ object: AnyObject) -> AnyObject? {
-        let searchBar: UISearchBar = castOrFatalError(object)
-        return searchBar.delegate
+    /// Typed parent object.
+    public weak private(set) var searchBar: UISearchBar?
+
+    /// - parameter parentObject: Parent object for delegate proxy.
+    public init(parentObject: ParentObject) {
+        self.searchBar = parentObject
+        super.init(parentObject: parentObject, delegateProxy: RxSearchBarDelegateProxy.self)
     }
 
-    /// For more information take a look at `DelegateProxyType`.
-    public class func setCurrentDelegate(_ delegate: AnyObject?, toObject object: AnyObject) {
-        let searchBar: UISearchBar = castOrFatalError(object)
-        searchBar.delegate = castOptionalOrFatalError(delegate)
+    // Register known implementations
+    public static func registerKnownImplementations() {
+        self.register { RxSearchBarDelegateProxy(parentObject: $0) }
     }
 
     // MARK: Delegate proxy methods
     
-#if os(iOS)
     /// For more information take a look at `DelegateProxyType`.
-    public override class func createProxyForObject(_ object: AnyObject) -> AnyObject {
-        let searchBar: UISearchBar = castOrFatalError(object)
-        return searchBar.createRxDelegateProxy()
+    open class func currentDelegate(for object: ParentObject) -> UISearchBarDelegate? {
+        return object.delegate
     }
-#endif
-    
+
+    /// For more information take a look at `DelegateProxyType`.
+    open class func setCurrentDelegate(_ delegate: UISearchBarDelegate?, to object: ParentObject) {
+        object.delegate = delegate
+    }
 }
 
 #endif

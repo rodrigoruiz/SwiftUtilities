@@ -14,27 +14,33 @@ import RxSwift
 #endif
 
 /// For more information take a look at `DelegateProxyType`.
-public class RxTabBarControllerDelegateProxy
-    : DelegateProxy
-    , UITabBarControllerDelegate
-    , DelegateProxyType {
-    
+open class RxTabBarControllerDelegateProxy
+    : DelegateProxy<UITabBarController, UITabBarControllerDelegate>
+    , DelegateProxyType 
+    , UITabBarControllerDelegate {
+
+    /// Typed parent object.
+    public weak private(set) var tabBar: UITabBarController?
+
+    /// - parameter parentObject: Parent object for delegate proxy.
+    public init(parentObject: ParentObject) {
+        self.tabBar = parentObject
+        super.init(parentObject: parentObject, delegateProxy: RxTabBarControllerDelegateProxy.self)
+    }
+
+    // Register known implementations
+    public static func registerKnownImplementations() {
+        self.register { RxTabBarControllerDelegateProxy(parentObject: $0) }
+    }
+
     /// For more information take a look at `DelegateProxyType`.
-    public class func currentDelegateFor(_ object: AnyObject) -> AnyObject? {
-        let tabBarController: UITabBarController = castOrFatalError(object)
-        return tabBarController.delegate
+    open class func currentDelegate(for object: ParentObject) -> UITabBarControllerDelegate? {
+        return object.delegate
     }
     
     /// For more information take a look at `DelegateProxyType`.
-    public class func setCurrentDelegate(_ delegate: AnyObject?, toObject object: AnyObject) {
-        let tabBarController: UITabBarController = castOrFatalError(object)
-        tabBarController.delegate = castOptionalOrFatalError(delegate)
-    }
-    
-    /// For more information take a look at `DelegateProxyType`.
-    public override class func createProxyForObject(_ object: AnyObject) -> AnyObject {
-        let tabBarController: UITabBarController = castOrFatalError(object)
-        return tabBarController.createRxDelegateProxy()
+    open class func setCurrentDelegate(_ delegate: UITabBarControllerDelegate?, to object: ParentObject) {
+        object.delegate = delegate
     }
 }
 

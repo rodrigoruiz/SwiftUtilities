@@ -46,7 +46,7 @@
       "source_files": "SwiftUtilities/External/**/*",
       "dependencies": {
         "RxSwift": [
-          "~> 3.0"
+          "~> 4.0.0-beta.0"
         ],
         "SwiftyJSON": [
 
@@ -68,10 +68,10 @@
 
         ],
         "RxCocoa": [
-          "~> 3.0"
+          "~> 4.0.0-beta.0"
         ],
         "RxSwift": [
-          "~> 3.0"
+          "~> 4.0.0-beta.0"
         ]
       }
     },
@@ -82,10 +82,10 @@
 
         ],
         "RxCocoa": [
-          "~> 3.0"
+          "~> 4.0.0-beta.0"
         ],
         "RxSwift": [
-          "~> 3.0"
+          "~> 4.0.0-beta.0"
         ],
         "SwiftyJSON": [
 

@@ -20,9 +20,9 @@ extension Sequence {
 }
 
 
-extension Collection where Indices.Iterator.Element == Index {
+extension Collection {
     
-    public subscript(_ index: Index) -> Generator.Element? {
+    public subscript(_ index: Index) -> Iterator.Element? {
         return indices.contains(index) ? self[index] : nil
     }
     
