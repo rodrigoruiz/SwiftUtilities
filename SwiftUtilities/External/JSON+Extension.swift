@@ -11,7 +11,7 @@ import SwiftyJSON
 extension JSON {
     
     public func isNull() -> Bool {
-        return self.null != nil
+        return null != nil
     }
     
     public init<T>(optional: T?) {

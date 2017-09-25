@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
     s.name             = 'SwiftUtilities'
-    s.version          = '1.3.1'
+    s.version          = '1.3.2'
     s.summary          = 'Generic Swift extensions and helper functions.'
     
     # This description is used to generate tags and improve search results.
@@ -79,5 +79,9 @@ This library provides some helper functions and structures useful for Function P
         #  pod 'Kingfisher'
         #  pod 'SwiftyTimer', git: 'https://github.com/radex/SwiftyTimer.git', branch: 'swift3'
         #  pod 'Cartography', :git => 'https://github.com/alexiosdev/Cartography.git', :branch => 'swift3_alex'
+        #  pod 'SlackTextViewController'
+        
+        # Other libraries
+        # https://gitlab.com/vsouza/awesome-ios
     end
 end
