@@ -52,6 +52,31 @@ public func take<T>(_ numberOfElements: Int) -> ([T]) -> [T] {
     return { $0.take(numberOfElements) }
 }
 
+extension Array where Element: OptionalType {
+    
+    public func filterOutNils() -> [Element.Wrapped] {
+        return flatMap({ $0.optional })
+    }
+    
+}
+
+public protocol OptionalType {
+    
+    associatedtype Wrapped
+    var optional: Wrapped? { get }
+    
+}
+
+extension Optional: OptionalType {
+    
+    public var optional: Wrapped? { return self }
+    
+}
+
+public func filterOutNil<T>(_ array: [T?]) -> [T] {
+    return array.filterOutNils()
+}
+
 public func == <T: Equatable>(lhs: [[T]]?, rhs: [[T]]?) -> Bool {
     switch (lhs, rhs) {
     case let (.some(lhs), .some(rhs)):
