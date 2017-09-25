@@ -2,13 +2,22 @@
 //  UIView+Extension.swift
 //  MyLibrary
 //
-//  Created by Rodrigo Ruiz on 4/25/17.
+//  Created by SwiftUtilities on 4/25/17.
 //  Copyright © 2017 Rodrigo Ruiz. All rights reserved.
 //
 
 import RxSwift
 
 extension UIView {
+    
+    var isVisible: Bool {
+        get {
+            return !isHidden
+        }
+        set {
+            isHidden = !newValue
+        }
+    }
     
     public static func animate(
         duration: TimeInterval,
@@ -82,15 +91,6 @@ extension UIView {
         }
         set {
             layer.borderColor = newValue?.cgColor
-        }
-    }
-    
-    @IBInspectable public var clipsBounds: Bool {
-        get {
-            return clipsToBounds
-        }
-        set {
-            clipsToBounds = newValue
         }
     }
     

@@ -1,6 +1,6 @@
 //
 //  UIImage+Extension.swift
-//  MyLibrary
+//  SwiftUtilities
 //
 //  Created by Rodrigo Ruiz on 4/25/17.
 //  Copyright © 2017 Rodrigo Ruiz. All rights reserved.
@@ -22,6 +22,16 @@ extension UIImage {
         } else {
             return nil
         }
+    }
+    
+    public convenience init(color: UIColor, size: CGSize) {
+        let rect = CGRect(origin: .zero, size: size)
+        UIGraphicsBeginImageContextWithOptions(rect.size, false, 0.0)
+        color.setFill()
+        UIRectFill(rect)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        self.init(cgImage: image!.cgImage!)
     }
     
     public func roundedImage() -> UIImage {

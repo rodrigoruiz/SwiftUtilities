@@ -1,6 +1,6 @@
 //
 //  Result.swift
-//  MyLibrary
+//  SwiftUtilities
 //
 //  Created by Rodrigo Ruiz on 4/25/17.
 //  Copyright © 2017 Rodrigo Ruiz. All rights reserved.
@@ -129,5 +129,16 @@ public func reduceResults<S, F, S2>(_ initialResultValue: S2, _ nextPartialResul
                 fatalError()
             }
         })
+    }
+}
+
+public func == <S: Equatable, F: Equatable>(lhs: Result<S, F>, rhs: Result<S, F>) -> Bool {
+    switch (lhs, rhs) {
+    case let (.success(left), .success(right)):
+        return left == right
+    case let (.failure(left), .failure(right)):
+        return left == right
+    default:
+        return false
     }
 }
