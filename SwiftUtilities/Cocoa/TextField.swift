@@ -9,6 +9,7 @@
 public class TextField: UITextField, UITextFieldDelegate {
     
     var shouldChangeText: ((String) -> Bool)?
+    var shouldReturn: (() -> Bool)?
     
     public override init(frame: CGRect) {
         super.init(frame: frame)
@@ -31,6 +32,10 @@ public class TextField: UITextField, UITextFieldDelegate {
         let newText = currentText.replacingCharacters(in: range, with: string)
         
         return shouldChangeText(newText)
+    }
+    
+    public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        return shouldReturn?() ?? true
     }
     
 }
