@@ -1,6 +1,6 @@
 //
 //  Optional+Extension.swift
-//  MyLibrary
+//  SwiftUtilities
 //
 //  Created by Rodrigo Ruiz on 8/1/17.
 //  Copyright © 2017 Rodrigo Ruiz. All rights reserved.
