@@ -7,20 +7,22 @@
 //
 
 public func map<T1, T2>(_ transform: @escaping (T1) -> T2) -> (T1?) -> T2? {
-    return { s1 in
-        return s1.map(transform)
-    }
+    return { $0.map(transform) }
 }
 
 extension Optional {
     
-    public func apply<U>(_ f: ((Wrapped) -> U)?) -> U? {
-        switch f {
-        case .some(let someF):
-            return map(someF)
+    public func apply<U>(_ transform: ((Wrapped) -> U)?) -> U? {
+        switch transform {
+        case .some(let someTransform):
+            return map(someTransform)
         case .none:
             return .none
         }
     }
     
+}
+
+public func apply<T, U>(_ transform: ((T) -> U)?) -> (T?) -> U? {
+    return { $0.apply(transform) }
 }
