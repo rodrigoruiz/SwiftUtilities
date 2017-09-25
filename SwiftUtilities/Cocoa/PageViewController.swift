@@ -6,16 +6,16 @@
 //  Copyright © 2017 Rodrigo Ruiz. All rights reserved.
 //
 
-public class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
+open class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
     
     public var orderedViewControllers = [UIViewController]() {
         didSet {
-            if self.orderedViewControllers.count == 0 {
+            if orderedViewControllers.count == 0 {
                 return
             }
             
-            self.setViewControllers(
-                [self.orderedViewControllers[0]],
+            setViewControllers(
+                [orderedViewControllers[0]],
                 direction: .forward,
                 animated: true,
                 completion: nil
@@ -23,7 +23,7 @@ public class PageViewController: UIPageViewController, UIPageViewControllerDataS
         }
     }
     
-    public override func viewDidLoad() {
+    open override func viewDidLoad() {
         super.viewDidLoad()
         
         dataSource = self
