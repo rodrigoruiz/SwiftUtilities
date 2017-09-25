@@ -149,6 +149,15 @@ extension UIView {
         }
     }
     
+    @IBInspectable var shadowColor: UIColor? {
+        get {
+            return layer.shadowColor.flatMap(UIColor.init)
+        }
+        set {
+            self.layer.shadowColor = newValue?.cgColor
+        }
+    }
+    
     @IBInspectable public var masksToBounds: Bool {
         get {
             return layer.masksToBounds
