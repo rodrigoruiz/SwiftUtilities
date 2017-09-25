@@ -49,7 +49,7 @@ public enum AsyncRequestState<S, F> {
         }
     }
     
-    func map<S2>(_ transform: (S) -> S2) -> AsyncRequestState<S2, F> {
+    public func map<S2>(_ transform: (S) -> S2) -> AsyncRequestState<S2, F> {
         switch self {
         case .none:
             return .none
