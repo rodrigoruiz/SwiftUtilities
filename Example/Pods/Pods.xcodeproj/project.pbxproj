@@ -233,6 +233,7 @@
 		A152DDF4BAD744360BD07B2E2D9F0F50 /* Single.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192C11A597B5360DFC2439A33BF28A7F /* Single.swift */; };
 		A165DCA738485C4D8ED9BEF8AC9C9790 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437BAFD90AD6210E5C5B0B40FFE2382D /* String+Extension.swift */; };
 		A1E080C8BAF90F3B5C4A9BF3B4375A98 /* _RXDelegateProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B57BA02244C97DE6CA729F820FADF12 /* _RXDelegateProxy.m */; };
+		A25AE5321F789BBC009CFD34 /* Collection+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25AE5311F789BBC009CFD34 /* Collection+Extension.swift */; };
 		A2F610BE5EEF87257781A084C41F7D39 /* SubscriptionDisposable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB213AD06066E0C4CC924E1F8D8D5F56 /* SubscriptionDisposable.swift */; };
 		A371899E701D0C0F6857DEF416AAA02C /* Debounce.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ADE88452A7C5753A9B52402EA0D3B7E /* Debounce.swift */; };
 		A415331F60A9E211EDD058FE98259FB8 /* _RX.h in Headers */ = {isa = PBXBuildFile; fileRef = D5295A23F8A79FD3EB8DD6A45FC308F9 /* _RX.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -677,6 +678,7 @@
 		9E7B0CC9875F6B35E890AE04F9AE2F86 /* Observable+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Observable+Extension.swift"; path = "SwiftUtilities/External/Observable+Extension.swift"; sourceTree = "<group>"; };
 		A062F979E022A04F2677763F77574A12 /* Maybe.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Maybe.swift; path = RxSwift/Traits/Maybe.swift; sourceTree = "<group>"; };
 		A0F2F2F7295A06A7BF1B8E7CD00771FE /* DelegateProxyType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DelegateProxyType.swift; path = RxCocoa/Common/DelegateProxyType.swift; sourceTree = "<group>"; };
+		A25AE5311F789BBC009CFD34 /* Collection+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Extension.swift"; sourceTree = "<group>"; };
 		A306D394239A91DAC9A5B57ED7EB00E2 /* SwiftyJSON.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftyJSON.xcconfig; sourceTree = "<group>"; };
 		A30C5AA0541BF9E8E006E5AEB1D342C1 /* SingleAsync.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SingleAsync.swift; path = RxSwift/Observables/SingleAsync.swift; sourceTree = "<group>"; };
 		A3156D3DD64E756925ECB3AC6AF45031 /* Pods-SwiftUtilities_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-SwiftUtilities_Example-dummy.m"; sourceTree = "<group>"; };
@@ -1085,6 +1087,7 @@
 			children = (
 				3CCB7CB78BC0F10F662CC4F7D9C7A1DA /* AdditionalProperties.swift */,
 				1921C1C3BAA4DF78A25296216A99EF16 /* Array+Extension.swift */,
+				A25AE5311F789BBC009CFD34 /* Collection+Extension.swift */,
 				BFC61B8D309F28B0BD04C21A317B5E3F /* Comparable+Extension.swift */,
 				96E2CDB0D4A671FDBEA424CF052B8022 /* Data+Extension.swift */,
 				5C870623AED978FC02EDB50EAFE089CC /* Date+Extension.swift */,
@@ -1669,6 +1672,11 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
 				LastUpgradeCheck = 0900;
+				TargetAttributes = {
+					E056E576E88680B7499EAEE1B4AF06FA = {
+						LastSwiftMigration = 0900;
+					};
+				};
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -1699,6 +1707,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				01C330A4881A3589976F601BF25C57D2 /* Pods-SwiftUtilities_Example-dummy.m in Sources */,
+				A25AE5321F789BBC009CFD34 /* Collection+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2200,6 +2209,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A8310C1864A59F16FDE29B8921A9584D /* Pods-SwiftUtilities_Example.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -2274,6 +2284,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9CC9C6DA7062EF86949BD8390E830F65 /* Pods-SwiftUtilities_Example.release.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";

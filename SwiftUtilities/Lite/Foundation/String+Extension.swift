@@ -1,6 +1,6 @@
 //
 //  String+Extension.swift
-//  MyLibrary
+//  SwiftUtilities
 //
 //  Created by Rodrigo Ruiz on 4/25/17.
 //  Copyright © 2017 Rodrigo Ruiz. All rights reserved.
@@ -85,7 +85,7 @@ extension String {
     }
     
     public func take(_ numberOfElements: Int) -> String {
-        return Array(characters.map({ "\($0)" })).take(numberOfElements).joined()
+        return Array(map({ "\($0)" })).take(numberOfElements).joined()
     }
     
     public func remove(charactersIn characterSet: CharacterSet) -> String {

@@ -1,6 +1,6 @@
 //
 //  Array+Extension.swift
-//  MyLibrary
+//  SwiftUtilities
 //
 //  Created by Rodrigo Ruiz on 4/25/17.
 //  Copyright © 2017 Rodrigo Ruiz. All rights reserved.
@@ -9,7 +9,7 @@
 extension Array {
     
     public func find<T>(_ includeElement: (Element, Int) -> T?) -> T? {
-        for (index, element) in self.enumerated() {
+        for (index, element) in enumerated() {
             if let t = includeElement(element, index) {
                 return t
             }
@@ -29,7 +29,7 @@ extension Array {
     }
     
     public func findIndex(_ includeElement: (Array.Iterator.Element) -> Bool) -> Int? {
-        for (index, element) in self.enumerated() {
+        for (index, element) in enumerated() {
             if includeElement(element) {
                 return index
             }
@@ -38,10 +38,18 @@ extension Array {
         return nil
     }
     
+    public func map<T>(_ transform: (Element, Int) -> T) -> [T] {
+        return enumerated().map({ transform($1, $0) })
+    }
+    
     public func take(_ numberOfElements: Int) -> [Element] {
         return Array(prefix(numberOfElements))
     }
     
+}
+
+public func take<T>(_ numberOfElements: Int) -> ([T]) -> [T] {
+    return { $0.take(numberOfElements) }
 }
 
 public func == <T: Equatable>(lhs: [[T]]?, rhs: [[T]]?) -> Bool {

@@ -1,6 +1,6 @@
 //
 //  AsyncRequestState.swift
-//  MyLibrary
+//  SwiftUtilities
 //
 //  Created by Rodrigo Ruiz on 8/21/17.
 //  Copyright © 2017 Rodrigo Ruiz. All rights reserved.
@@ -49,4 +49,30 @@ public enum AsyncRequestState<S, F> {
         }
     }
     
+    func map<S2>(_ transform: (S) -> S2) -> AsyncRequestState<S2, F> {
+        switch self {
+        case .none:
+            return .none
+        case .waiting:
+            return .waiting
+        case let .success(s):
+            return .success(transform(s))
+        case let .failure(f):
+            return .failure(f)
+        }
+    }
+    
+}
+
+public func == <S: Equatable, F: Equatable>(lhs: AsyncRequestState<S, F>, rhs: AsyncRequestState<S, F>) -> Bool {
+    switch (lhs, rhs) {
+    case (.none, .none), (.waiting, .waiting):
+        return true
+    case let (.success(left), .success(right)):
+        return left == right
+    case let (.failure(left), .failure(right)):
+        return left == right
+    default:
+        return false
+    }
 }
