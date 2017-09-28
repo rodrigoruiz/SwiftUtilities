@@ -149,7 +149,7 @@ extension UIView {
         }
     }
     
-    @IBInspectable var shadowColor: UIColor? {
+    @IBInspectable public var shadowColor: UIColor? {
         get {
             return layer.shadowColor.flatMap(UIColor.init)
         }
