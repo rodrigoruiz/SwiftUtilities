@@ -30,3 +30,8 @@ public func take<S: Sequence>(_ numberOfElements: Int) -> (S) -> S.SubSequence {
 public func map<S: Sequence, E>(_ transform: @escaping (S.Element) -> E) -> (S) -> [E] {
     return { $0.map(transform) }
 }
+
+public func filter<S: Sequence>(_ isIncluded: @escaping (S.Element) -> Bool) -> (S) -> [S.Element] {
+    return { $0.filter(isIncluded) }
+}
+
