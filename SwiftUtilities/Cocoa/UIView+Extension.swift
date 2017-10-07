@@ -67,6 +67,29 @@ extension UIView {
         })
     }
     
+    public func screenshot(scale: CGFloat = 0.0, isOpaque: Bool = true) -> UIImage {
+        UIGraphicsBeginImageContextWithOptions(bounds.size, isOpaque, scale)
+        drawHierarchy(in: bounds, afterScreenUpdates: true)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return image!
+    }
+    
+    public func blur(radius: CGFloat) -> UIImage? {
+        guard let blur = CIFilter(name: "CIGaussianBlur") else { return nil }
+        
+        blur.setValue(CIImage(image: screenshot(scale: 1.0)), forKey: kCIInputImageKey)
+        blur.setValue(radius, forKey: kCIInputRadiusKey)
+        
+        let context = CIContext(options: nil)
+        let result = blur.value(forKey: kCIOutputImageKey) as! CIImage
+        let rect = CGRect(x: 0, y: 0, width: frame.width, height: frame.height)
+        let cgImage = context.createCGImage(result, from: rect)!
+        
+        return UIImage(cgImage: cgImage)
+    }
+    
     @IBInspectable public var cornerRadius: Double {
         get {
             return Double(layer.cornerRadius)
@@ -132,7 +155,7 @@ extension UIView {
         }
     }
     
-    @IBInspectable var shadowColor: UIColor? {
+    @IBInspectable public var shadowColor: UIColor? {
         get {
             return layer.shadowColor.flatMap(UIColor.init)
         }
