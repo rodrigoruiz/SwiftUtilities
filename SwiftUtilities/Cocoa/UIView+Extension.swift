@@ -103,23 +103,6 @@ extension UIView {
         )
     }
     
-    public func addConstraintsWithVisualFormat(
-        _ format: String,
-        options: NSLayoutFormatOptions = NSLayoutFormatOptions(),
-        metrics: [String : AnyObject]? = nil,
-        views: [String : AnyObject]) -> [NSLayoutConstraint]
-    {
-        let constraints = NSLayoutConstraint.constraints(
-            withVisualFormat: format,
-            options: options,
-            metrics: metrics,
-            views: views
-        )
-        addConstraints(constraints)
-        
-        return constraints
-    }
-    
     // MARK: - Shadow
     
     @IBInspectable public var shadowOffset: CGSize {
