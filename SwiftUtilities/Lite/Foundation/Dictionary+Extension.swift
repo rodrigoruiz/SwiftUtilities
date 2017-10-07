@@ -31,3 +31,15 @@ extension Dictionary {
     }
     
 }
+
+extension Dictionary where Value: OptionalType {
+    
+    public func filterOutNils() -> [Key: Value.Wrapped] {
+        return filter({ $0.value.optional != nil }).mapValues({ $0.optional! })
+    }
+    
+}
+
+public func filterOutNils<K, V>(_ dictionary: [K: V?]) -> [K: V] {
+    return dictionary.filterOutNils()
+}
