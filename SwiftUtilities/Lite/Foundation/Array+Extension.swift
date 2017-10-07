@@ -60,20 +60,7 @@ extension Array where Element: OptionalType {
     
 }
 
-public protocol OptionalType {
-    
-    associatedtype Wrapped
-    var optional: Wrapped? { get }
-    
-}
-
-extension Optional: OptionalType {
-    
-    public var optional: Wrapped? { return self }
-    
-}
-
-public func filterOutNil<T>(_ array: [T?]) -> [T] {
+public func filterOutNils<T>(_ array: [T?]) -> [T] {
     return array.filterOutNils()
 }
 
