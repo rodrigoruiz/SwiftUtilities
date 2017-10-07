@@ -35,3 +35,14 @@ public func filter<S: Sequence>(_ isIncluded: @escaping (S.Element) -> Bool) -> 
     return { $0.filter(isIncluded) }
 }
 
+extension Sequence where Element: Sequence {
+    
+    public func flatten() -> FlattenSequence<Self> {
+        return joined()
+    }
+    
+}
+
+public func flatten<S: Sequence>(_ sequence: S) -> FlattenSequence<S> where S.Element: Sequence {
+    return sequence.flatten()
+}
