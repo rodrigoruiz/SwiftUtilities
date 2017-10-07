@@ -42,14 +42,6 @@ extension Array {
         return enumerated().map({ transform($1, $0) })
     }
     
-    public func take(_ numberOfElements: Int) -> [Element] {
-        return Array(prefix(numberOfElements))
-    }
-    
-}
-
-public func take<T>(_ numberOfElements: Int) -> ([T]) -> [T] {
-    return { $0.take(numberOfElements) }
 }
 
 extension Array where Element: OptionalType {
