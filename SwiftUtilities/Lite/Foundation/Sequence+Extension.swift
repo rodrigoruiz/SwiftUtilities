@@ -17,8 +17,16 @@ extension Sequence {
         })!
     }
     
+    public func take(_ numberOfElements: Int) -> Self.SubSequence {
+        return prefix(numberOfElements)
+    }
+    
 }
 
-public func map<T1, T2>(_ transform: @escaping (T1) -> T2) -> (AnySequence<T1>) -> [T2] {
+public func take<S: Sequence>(_ numberOfElements: Int) -> (S) -> S.SubSequence {
+    return { $0.take(numberOfElements) }
+}
+
+public func map<S: Sequence, E>(_ transform: @escaping (S.Element) -> E) -> (S) -> [E] {
     return { $0.map(transform) }
 }
