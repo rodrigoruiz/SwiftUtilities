@@ -52,11 +52,14 @@ This library provides some helper functions and structures useful for Function P
     s.subspec 'Experimental' do |subspec|
         subspec.source_files = 'SwiftUtilities/Experimental/**/*'
         subspec.dependency 'SwiftUtilities/Lite'
+        subspec.dependency 'RxSwift', '~> 4.0.0'
+        subspec.dependency 'SwiftyJSON'
     end
     
     s.subspec 'External' do |subspec|
         subspec.source_files = 'SwiftUtilities/External/**/*'
-        subspec.dependency 'RxSwift', '~> 4.0.0-beta.0'
+        subspec.dependency 'ReSwift'
+        subspec.dependency 'RxSwift', '~> 4.0.0'
         subspec.dependency 'SwiftyJSON'
     end
     
@@ -65,14 +68,14 @@ This library provides some helper functions and structures useful for Function P
         subspec.source_files = 'SwiftUtilities/Cocoa/**/*'
         subspec.frameworks = 'MessageUI', 'UIKit'
         subspec.dependency 'SwiftUtilities/Lite'
-        subspec.dependency 'RxCocoa', '~> 4.0.0-beta.0'
-        subspec.dependency 'RxSwift', '~> 4.0.0-beta.0'
+        subspec.dependency 'RxCocoa', '~> 4.0.0'
+        subspec.dependency 'RxSwift', '~> 4.0.0'
     end
     
     s.subspec 'iOSDependencies' do |subspec|
         subspec.dependency 'ReSwift'
-        subspec.dependency 'RxCocoa', '~> 4.0.0-beta.0'
-        subspec.dependency 'RxSwift', '~> 4.0.0-beta.0'
+        subspec.dependency 'RxCocoa', '~> 4.0.0'
+        subspec.dependency 'RxSwift', '~> 4.0.0'
         subspec.dependency 'SwiftyJSON'
         
         #  pod 'SlackTextViewController'
