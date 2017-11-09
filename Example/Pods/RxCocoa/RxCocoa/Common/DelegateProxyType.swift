@@ -72,7 +72,7 @@ Since RxCocoa needs to automagically create those Proxys and because views that 
     RxScrollViewDelegateProxy.register { RxTableViewDelegateProxy(parentObject: $0) }
 
 */
-public protocol DelegateProxyType : AnyObject {
+public protocol DelegateProxyType: class {
     associatedtype ParentObject: AnyObject
     associatedtype Delegate: AnyObject
     
@@ -239,6 +239,44 @@ extension DelegateProxyType
 
     fileprivate static func assignProxy(_ proxy: Delegate, toObject object: ParentObject) {
         objc_setAssociatedObject(object, self.identifier, proxy, .OBJC_ASSOCIATION_RETAIN)
+    }
+}
+
+/// Describes an object that has a delegate.
+public protocol HasDelegate: AnyObject {
+    /// Delegate type
+    associatedtype Delegate: AnyObject
+
+    /// Delegate
+    var delegate: Delegate? { get set }
+}
+
+extension DelegateProxyType where ParentObject: HasDelegate, Self.Delegate == ParentObject.Delegate {
+    public static func currentDelegate(for object: ParentObject) -> Delegate? {
+        return object.delegate
+    }
+
+    public static func setCurrentDelegate(_ delegate: Delegate?, to object: ParentObject) {
+        object.delegate = delegate
+    }
+}
+
+/// Describes an object that has a data source.
+public protocol HasDataSource: AnyObject {
+    /// Data source type
+    associatedtype DataSource: AnyObject
+
+    /// Data source
+    var dataSource: DataSource? { get set }
+}
+
+extension DelegateProxyType where ParentObject: HasDataSource, Self.Delegate == ParentObject.DataSource {
+    public static func currentDelegate(for object: ParentObject) -> Delegate? {
+        return object.dataSource
+    }
+
+    public static func setCurrentDelegate(_ delegate: Delegate?, to object: ParentObject) {
+        object.dataSource = delegate
     }
 }
 
