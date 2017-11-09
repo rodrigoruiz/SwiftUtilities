@@ -3,31 +3,31 @@ PODS:
   - RxCocoa (4.0.0):
     - RxSwift (~> 4.0)
   - RxSwift (4.0.0)
-  - SwiftUtilities (1.3.3):
-    - SwiftUtilities/Complete (= 1.3.3)
-  - SwiftUtilities/Cocoa (1.3.3):
+  - SwiftUtilities (1.4.0):
+    - SwiftUtilities/Complete (= 1.4.0)
+  - SwiftUtilities/Cocoa (1.4.0):
     - RxCocoa (~> 4.0.0)
     - RxSwift (~> 4.0.0)
     - SwiftUtilities/Lite
-  - SwiftUtilities/Complete (1.3.3):
+  - SwiftUtilities/Complete (1.4.0):
     - SwiftUtilities/Cocoa
     - SwiftUtilities/External
     - SwiftUtilities/iOSDependencies
     - SwiftUtilities/Lite
-  - SwiftUtilities/Experimental (1.3.3):
+  - SwiftUtilities/Experimental (1.4.0):
     - RxSwift (~> 4.0.0)
     - SwiftUtilities/Lite
     - SwiftyJSON
-  - SwiftUtilities/External (1.3.3):
+  - SwiftUtilities/External (1.4.0):
     - ReSwift
     - RxSwift (~> 4.0.0)
     - SwiftyJSON
-  - SwiftUtilities/iOSDependencies (1.3.3):
+  - SwiftUtilities/iOSDependencies (1.4.0):
     - ReSwift
     - RxCocoa (~> 4.0.0)
     - RxSwift (~> 4.0.0)
     - SwiftyJSON
-  - SwiftUtilities/Lite (1.3.3)
+  - SwiftUtilities/Lite (1.4.0)
   - SwiftyJSON (4.0.0)
 
 DEPENDENCIES:
@@ -42,7 +42,7 @@ SPEC CHECKSUMS:
   ReSwift: f058ef13b46ae5f463f10605ccbbb7fb04424d8d
   RxCocoa: d62846ca96495d862fa4c59ea7d87e5031d7340e
   RxSwift: fd680d75283beb5e2559486f3c0ff852f0d35334
-  SwiftUtilities: 01ed124ba471a303e17510392b6b02493f655c5c
+  SwiftUtilities: 622c593a07fbda9a4f96dfe733aa41f188e41c80
   SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
 
 PODFILE CHECKSUM: d053ea9ee12eb0032d4514655c6f757a2506b773

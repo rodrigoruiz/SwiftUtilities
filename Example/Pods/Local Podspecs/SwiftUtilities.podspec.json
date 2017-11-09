@@ -1,6 +1,6 @@
 {
   "name": "SwiftUtilities",
-  "version": "1.3.3",
+  "version": "1.4.0",
   "summary": "Generic Swift extensions and helper functions.",
   "description": "This library provides some helper functions and structures useful for Function Programming.",
   "homepage": "https://github.com/rodrigoruiz/SwiftUtilities.git",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/rodrigoruiz/SwiftUtilities.git",
-    "tag": "1.3.3"
+    "tag": "1.4.0"
   },
   "default_subspecs": "Complete",
   "platforms": {
