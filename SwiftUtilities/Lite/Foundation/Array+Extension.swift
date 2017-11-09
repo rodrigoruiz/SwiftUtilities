@@ -38,22 +38,6 @@ extension Array {
         return nil
     }
     
-    public func map<T>(_ transform: (Element, Int) -> T) -> [T] {
-        return enumerated().map({ transform($1, $0) })
-    }
-    
-}
-
-extension Array where Element: OptionalType {
-    
-    public func filterOutNils() -> [Element.Wrapped] {
-        return flatMap({ $0.optional })
-    }
-    
-}
-
-public func filterOutNils<T>(_ array: [T?]) -> [T] {
-    return array.filterOutNils()
 }
 
 public func == <T: Equatable>(lhs: [[T]]?, rhs: [[T]]?) -> Bool {
