@@ -13,7 +13,7 @@ extension URL {
             guard let scheme = scheme else { return nil }
             
             // scheme://resourceSpecifier
-            return absoluteString.substring(from: scheme.length + 3)
+            return absoluteString.substring(from: scheme.count + 3)
         }
     }
     
