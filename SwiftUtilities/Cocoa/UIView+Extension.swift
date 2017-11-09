@@ -173,4 +173,25 @@ extension UIView {
         }
     }
     
+    @IBInspectable public var rotationAnimationDuration: Double {
+        get {
+            return layer.animation(forKey: "transform.rotation.z")?.duration ?? 0
+        }
+        set {
+            layer.removeAnimation(forKey: "transform.rotation.z")
+            
+            guard newValue > 0 else { return }
+            
+            let animation = CABasicAnimation()
+            animation.fromValue = 0
+            animation.toValue = Double.pi * 2
+            animation.duration = newValue
+            animation.repeatCount = .infinity
+            animation.isRemovedOnCompletion = false
+            animation.fillMode = kCAFillModeForwards
+            
+            layer.add(animation, forKey: "transform.rotation.z")
+        }
+    }
+    
 }
