@@ -8,12 +8,8 @@
 
 extension String {
     
-    public var length: Int {
-        return characters.count
-    }
-    
     public subscript(i: Int) -> String {
-        guard i >= 0 && i < characters.count else { return "" }
+        guard i >= 0 && i < count else { return "" }
         return String(self[index(startIndex, offsetBy: i)])
     }
     
@@ -34,10 +30,11 @@ extension String {
     }
     
     public func indexOfCharacter(char: Character) -> Int? {
-        if let idx = characters.index(of: char) {
-            return characters.distance(from: startIndex, to: idx)
+        guard let index = index(of: char) else {
+            return nil
         }
-        return nil
+        
+        return distance(from: startIndex, to: index)
     }
     
     public func index(from: Int) -> Index {

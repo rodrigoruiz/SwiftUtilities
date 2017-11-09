@@ -28,7 +28,7 @@ public struct Regex {
         let matches = regularExpression.matches(
             in: string,
             options: options,
-            range: NSRange(location: 0, length: string.length)
+            range: NSRange(location: 0, length: string.count)
         )
         
         return matches.map({ match in
