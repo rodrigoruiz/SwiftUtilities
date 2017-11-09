@@ -16,4 +16,12 @@ extension UINib {
         return view
     }
     
+    public static func instantiateView(_ nibName: String) -> UIView {
+        let nib = UINib(nibName: nibName, bundle: nil)
+        guard let view = nib.instantiate(withOwner: nil, options: nil)[0] as? UIView else {
+            fatalError()
+        }
+        return view
+    }
+    
 }
