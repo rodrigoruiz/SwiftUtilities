@@ -39,7 +39,11 @@ func sendHTTPRequest(
     
     guard let url = URL(string: urlString) else {
         return Observable.create({ observer in
-            observer.onNext(HTTPResponse(data: nil, response: nil, error: NSError(domain: "urlString", code: -1, userInfo: nil)))
+            observer.onNext(HTTPResponse(
+                data: nil,
+                response: nil,
+                error: NSError(domain: "urlString", code: -1, userInfo: nil)
+            ))
             observer.onCompleted()
             
             return Disposables.create()
@@ -49,7 +53,7 @@ func sendHTTPRequest(
     urlrequest.httpMethod = method.rawValue
     
     if method.rawValue == "POST" {
-        urlrequest.httpBody = try? JSONSerialization.data(withJSONObject: parameters, options:.prettyPrinted)
+        urlrequest.httpBody = try? JSONSerialization.data(withJSONObject: parameters, options: .prettyPrinted)
     }
     
     for (key, value) in header {

@@ -9,6 +9,9 @@
 enum APIRequestError {
     
     case noInternet
+    case responseError
+    case unableToParseJSON
+    case statusCode(Int)
     case serverIssue(String)
     
 }
