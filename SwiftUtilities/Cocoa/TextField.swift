@@ -8,8 +8,8 @@
 
 public class TextField: UITextField, UITextFieldDelegate {
     
-    var shouldChangeText: ((String) -> Bool)?
-    var shouldReturn: (() -> Bool)?
+    public var shouldChangeText: ((String) -> Bool)?
+    public var shouldReturn: (() -> Bool)?
     
     public override init(frame: CGRect) {
         super.init(frame: frame)
