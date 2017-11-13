@@ -6,7 +6,7 @@
 //  Copyright © 2017 Rodrigo Ruiz. All rights reserved.
 //
 
-enum APIRequestError {
+public enum APIRequestError {
     
     case noInternet
     case responseError
@@ -16,7 +16,7 @@ enum APIRequestError {
     
 }
 
-func == (lhs: APIRequestError, rhs: APIRequestError) -> Bool {
+public func == (lhs: APIRequestError, rhs: APIRequestError) -> Bool {
     switch (lhs, rhs) {
     case (.noInternet, .noInternet):
         return true

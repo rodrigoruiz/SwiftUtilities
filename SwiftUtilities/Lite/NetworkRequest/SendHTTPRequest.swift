@@ -10,14 +10,14 @@ import Foundation
 import RxSwift
 
 
-enum HTTPMethod: String {
+public enum HTTPMethod: String {
     
     case get = "GET"
     case post = "POST"
     
 }
 
-struct HTTPResponse {
+public struct HTTPResponse {
     
     let data: Data?
     let response: URLResponse?
@@ -25,7 +25,7 @@ struct HTTPResponse {
     
 }
 
-func sendHTTPRequest(
+public func sendHTTPRequest(
     url: String,
     method: HTTPMethod = .get,
     header: [String: String] = [:],

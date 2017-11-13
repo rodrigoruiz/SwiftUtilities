@@ -10,7 +10,7 @@ import RxSwift
 import SwiftyJSON
 
 
-func sendAPIRequest(
+public func sendAPIRequest(
     url: String,
     method: HTTPMethod = .get,
     header: [String: String] = [:],
