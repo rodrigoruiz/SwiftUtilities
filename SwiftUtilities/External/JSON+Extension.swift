@@ -8,6 +8,7 @@
 
 import SwiftyJSON
 
+
 extension JSON {
     
     public func isNull() -> Bool {

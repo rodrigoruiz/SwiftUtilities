@@ -14,7 +14,7 @@ public protocol AdditionalProperties: AnyObject {
 
 extension AdditionalProperties {
     
-    var properties: [String: AnyObject] {
+    public var properties: [String: AnyObject] {
         get {
             if objc_getAssociatedObject(self, &propertiesKey) == nil {
                 properties = [:]

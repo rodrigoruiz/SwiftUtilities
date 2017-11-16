@@ -8,9 +8,10 @@
 
 import RxSwift
 
+
 extension UIView {
     
-    var isVisible: Bool {
+    public var isVisible: Bool {
         get {
             return !isHidden
         }
