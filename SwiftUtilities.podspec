@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
     s.name             = 'SwiftUtilities'
-    s.version          = '1.5.2'
+    s.version          = '1.5.3'
     s.summary          = 'Generic Swift extensions and helper functions.'
     
     # This description is used to generate tags and improve search results.
@@ -58,6 +58,7 @@ This library provides some helper functions and structures useful for Function P
     
     s.subspec 'External' do |subspec|
         subspec.source_files = 'SwiftUtilities/External/**/*'
+        subspec.dependency 'SwiftUtilities/Lite'
         subspec.dependency 'ReSwift'
         subspec.dependency 'RxSwift', '~> 4.0.0'
         subspec.dependency 'SwiftyJSON'
@@ -78,11 +79,11 @@ This library provides some helper functions and structures useful for Function P
         subspec.dependency 'RxSwift', '~> 4.0.0'
         subspec.dependency 'SwiftyJSON'
         
-        #  pod 'SlackTextViewController'
-        #  pod 'Kingfisher'
-        #  pod 'SwiftyTimer', git: 'https://github.com/radex/SwiftyTimer.git', branch: 'swift3'
         #  pod 'Cartography', :git => 'https://github.com/alexiosdev/Cartography.git', :branch => 'swift3_alex'
+        #  pod 'Kingfisher'
         #  pod 'SlackTextViewController'
+        #  pod 'Sourcery'
+        #  pod 'SwiftyTimer', git: 'https://github.com/radex/SwiftyTimer.git', branch: 'swift3'
         
         # Other libraries
         # https://gitlab.com/vsouza/awesome-ios
