@@ -9,9 +9,10 @@
 import ReSwift
 import RxSwift
 
+
 extension Store {
     
-    func dispatchObservable(_ callbackActionCreator: @escaping (@escaping () -> Void) -> (State, Store<State>) -> Action?) -> Observable<State> {
+    public func dispatchObservable(_ callbackActionCreator: @escaping (@escaping () -> Void) -> (State, Store<State>) -> Action?) -> Observable<State> {
         return Observable.create({ observer in
             let actionCreator = callbackActionCreator({
                 observer.onNext(self.state)
