@@ -43,8 +43,8 @@ public class TableViewModel<Item: Equatable>: NSObject, UITableViewDataSource, U
         guard
             let item = items?[indexPath.section][indexPath.row],
             let cellForRow = cellForRow
-            else {
-                return UITableViewCell()
+        else {
+            return UITableViewCell()
         }
         
         return cellForRow(item, indexPath)

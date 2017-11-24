@@ -12,7 +12,7 @@ public class TableView: UITableView, UITableViewDataSource, UITableViewDelegate 
         items: [[Item]],
         cellForRow: @escaping (Item, IndexPath) -> UITableViewCell,
         didSelectRow: ((Item?) -> Void)? = nil
-        ) {
+    ) {
         cellForRowAt = { cellForRow(items[$0.section][$0.row], $0) }
         
         tNumberOfSections = items.count
