@@ -29,7 +29,7 @@ public func sendHTTPRequest(
     url: String,
     method: HTTPMethod = .get,
     header: [String: String] = [:],
-    parameters: [String: String] = [:]
+    parameters: [String: Any] = [:]
 ) -> Observable<HTTPResponse> {
     var urlString = url
     
@@ -53,7 +53,7 @@ public func sendHTTPRequest(
     urlrequest.httpMethod = method.rawValue
     
     if method.rawValue == "POST" {
-        urlrequest.httpBody = try? JSONSerialization.data(withJSONObject: parameters, options: .prettyPrinted)
+        urlrequest.httpBody = try! JSONSerialization.data(withJSONObject: parameters, options: [])
     }
     
     for (key, value) in header {
@@ -75,15 +75,24 @@ public func sendHTTPRequest(
     })
 }
 
-// MARK: - Private
+// MARK: - Privatem
 
-private func stringFromHttpParameters(_ parameters: [String: String]) -> String {
-    let parameterArray = parameters.map { (key, value) -> String in
+private func stringFromHttpParameters(_ parameters: [String: Any]) -> String {
+    return parameters.map({ key, value in
         let percentEscapedKey = stringByAddingPercentEncodingForURLQueryValue(key)!
-        let percentEscapedValue = stringByAddingPercentEncodingForURLQueryValue(value)!
+        
+        let percentEscapedValue: String
+        
+        if value is [AnyHashable: Any] || value is [Any] {
+            let valueJSONData = try! JSONSerialization.data(withJSONObject: value, options: [])
+            let valueJSONString = String(data: valueJSONData, encoding: .utf8)!
+            percentEscapedValue = stringByAddingPercentEncodingForURLQueryValue(valueJSONString)!
+        } else {
+            percentEscapedValue = stringByAddingPercentEncodingForURLQueryValue("\(value)")!
+        }
+        
         return "\(percentEscapedKey)=\(percentEscapedValue)"
-    }
-    return parameterArray.joined(separator: "&")
+    }).joined(separator: "&")
 }
 
 private func stringByAddingPercentEncodingForURLQueryValue(_ string: String) -> String? {

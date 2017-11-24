@@ -14,7 +14,7 @@ public func sendAPIRequest(
     url: String,
     method: HTTPMethod = .get,
     header: [String: String] = [:],
-    parameters: [String: String] = [:]
+    parameters: [String: Any] = [:]
 ) -> Observable<Result<JSON, APIRequestError>> {
     let header = header + [
         "Content-Type": "application/json",
