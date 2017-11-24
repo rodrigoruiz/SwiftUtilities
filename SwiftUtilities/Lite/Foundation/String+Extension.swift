@@ -98,3 +98,7 @@ public func take(_ numberOfElements: Int) -> (String) -> String {
 public func remove(charactersIn characterSet: CharacterSet) -> (String) -> String {
     return { $0.remove(charactersIn: characterSet) }
 }
+
+public func count(_ string: String) -> Int {
+    return string.count
+}
