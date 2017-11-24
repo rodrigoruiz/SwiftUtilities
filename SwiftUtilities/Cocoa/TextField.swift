@@ -10,6 +10,7 @@ public class TextField: UITextField, UITextFieldDelegate {
     
     public var shouldChangeText: ((String) -> Bool)?
     public var shouldReturn: (() -> Bool)?
+    public var maximumNumberOfCharacters: Int?
     
     public override init(frame: CGRect) {
         super.init(frame: frame)
@@ -24,12 +25,19 @@ public class TextField: UITextField, UITextFieldDelegate {
     // MARK: - UITextFieldDelegate
     
     public func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let currentText = (textField.text ?? "") as NSString
+        let newText = currentText.replacingCharacters(in: range, with: string)
+        
+        if
+            let maximumNumberOfCharacters = maximumNumberOfCharacters,
+            newText.count > maximumNumberOfCharacters
+        {
+            return false
+        }
+        
         guard let shouldChangeText = shouldChangeText else {
             return true
         }
-        
-        let currentText = (textField.text ?? "") as NSString
-        let newText = currentText.replacingCharacters(in: range, with: string)
         
         return shouldChangeText(newText)
     }
