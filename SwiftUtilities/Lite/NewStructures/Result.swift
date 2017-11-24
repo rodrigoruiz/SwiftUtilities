@@ -27,6 +27,18 @@ public enum Result<S, F> {
         return nil
     }
     
+    public func isSuccess() -> Bool {
+        if case .success(_) = self {
+            return true
+        }
+        
+        return false
+    }
+    
+    public func isFailure() -> Bool {
+        return !isSuccess()
+    }
+    
     public func flatMap<S2>(_ transform: (S) -> Result<S2, F>) -> Result<S2, F> {
         switch self {
         case let .success(s):
@@ -78,6 +90,14 @@ public func getSuccess<S, F>(_ result: Result<S, F>) -> S? {
 
 public func getFailure<S, F>(_ result: Result<S, F>) -> F? {
     return result.getFailure()
+}
+
+public func isSuccess<S, F>(_ result: Result<S, F>) -> Bool {
+    return result.isSuccess()
+}
+
+public func isFailure<S, F>(_ result: Result<S, F>) -> Bool {
+    return result.isFailure()
 }
 
 public func flatMap<S, F, S2>(_ transform: @escaping (S) -> Result<S2, F>) -> (Result<S, F>) -> Result<S2, F> {
