@@ -6,6 +6,9 @@
 //  Copyright © 2017 Rodrigo Ruiz. All rights reserved.
 //
 
+import UIKit
+
+
 extension NSAttributedString {
     
     public static func attributedString(with text: String, font: UIFont? = nil, color: UIColor? = nil) -> NSAttributedString {
