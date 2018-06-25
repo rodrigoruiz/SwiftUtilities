@@ -12,6 +12,14 @@ extension Sequence {
         return enumerated().map({ transform($1, $0) })
     }
     
+    public func map<T>(_ keyPath: KeyPath<Element, T>) -> [T] {
+        return map({ $0[keyPath: keyPath] })
+    }
+    
+    public func flatMap<T>(_ keyPath: KeyPath<Element, [T]>) -> [T] {
+        return flatMap({ $0[keyPath: keyPath] })
+    }
+    
     public func reduce(_ combine: (Self.Iterator.Element, Self.Iterator.Element) -> Self.Iterator.Element) -> Self.Iterator.Element {
         let initial: Self.Iterator.Element? = nil
         return reduce(initial, { (result, element) in
@@ -41,6 +49,10 @@ public func map<S: Sequence, E>(_ transform: @escaping (S.Element) -> E) -> (S) 
 
 public func map<S: Sequence, E>(_ transform: @escaping (S.Element, Int) -> E) -> (S) -> [E] {
     return { $0.map(transform) }
+}
+
+public func map<S: Sequence, E>(_ keyPath: KeyPath<S.Element, E>) -> (S) -> [E] {
+    return { $0.map(keyPath) }
 }
 
 public func filter<S: Sequence>(_ isIncluded: @escaping (S.Element) -> Bool) -> (S) -> [S.Element] {
