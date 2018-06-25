@@ -27,7 +27,7 @@ This library provides some helper functions and structures useful for Function P
     s.author           = { 'Rodrigo Ruiz' => 'rodrigo.ruiz7@gmail.com' }
     s.source           = { :git => 'https://github.com/rodrigoruiz/SwiftUtilities.git', :tag => s.version.to_s }
     # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
-    # s.ios.deployment_target = '9.0'
+     s.ios.deployment_target = '9.0'
     # s.source_files = 'SwiftUtilities/Classes/**/*'
     s.default_subspec = 'Complete'
     
@@ -45,7 +45,8 @@ This library provides some helper functions and structures useful for Function P
     end
     
     s.subspec 'Lite' do |subspec|
-        s.ios.deployment_target = '9.0'
+        subspec.ios.deployment_target = '9.0'
+        subspec.osx.deployment_target = '10.13'
         subspec.source_files = 'SwiftUtilities/Lite/**/*'
     end
     
@@ -57,6 +58,8 @@ This library provides some helper functions and structures useful for Function P
     end
     
     s.subspec 'External' do |subspec|
+        subspec.ios.deployment_target = '9.0'
+        subspec.osx.deployment_target = '10.13'
         subspec.source_files = 'SwiftUtilities/External/**/*'
         subspec.dependency 'SwiftUtilities/Lite'
         subspec.dependency 'ReSwift'
