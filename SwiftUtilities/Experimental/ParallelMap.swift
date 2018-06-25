@@ -65,7 +65,7 @@ extension Collection {
         queue.addOperations(operations, waitUntilFinished: true)
         
         let f = Array<T>(UnsafeBufferPointer(start: result, count: indices.count))
-        result.deallocate(capacity: indices.count)
+        result.deallocate()
         return f
     }
     

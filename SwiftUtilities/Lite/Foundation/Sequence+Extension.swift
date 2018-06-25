@@ -94,7 +94,7 @@ public func flatten<S: Sequence>(_ sequence: S) -> FlattenSequence<S> where S.El
 extension Sequence where Element: OptionalType {
     
     public func filterOutNils() -> [Element.Wrapped] {
-        return flatMap({ $0.optional })
+        return compactMap({ $0.optional })
     }
     
 }
