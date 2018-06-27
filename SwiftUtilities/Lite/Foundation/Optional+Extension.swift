@@ -31,7 +31,7 @@ public func apply<T, U>(_ transform: ((T) -> U)?) -> (T?) -> U? {
     return { $0.apply(transform) }
 }
 
-func defaultTo<T>(_ defaultValue: T) -> (T?) -> T {
+public func defaultTo<T>(_ defaultValue: T) -> (T?) -> T {
     return { optional in
         return optional ?? defaultValue
     }

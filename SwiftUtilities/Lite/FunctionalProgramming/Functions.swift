@@ -16,11 +16,11 @@ public func asType<T, V>(_ type: T.Type) -> (V) -> T? {
     }
 }
 
-func const<C, I>(_ c: C) -> (I) -> C {
+public func const<C, I>(_ c: C) -> (I) -> C {
     return { _ in c }
 }
 
-func ifElse<I, O>(
+public func ifElse<I, O>(
     _ condition: @escaping (I) -> Bool,
     _ ifTransform: @escaping (I) -> O,
     _ elseTransform: @escaping (I) -> O
@@ -34,7 +34,7 @@ func ifElse<I, O>(
     }
 }
 
-func getKeyPath<E, V>(_ keyPath: KeyPath<E, V>) -> (E) -> V {
+public func getKeyPath<E, V>(_ keyPath: KeyPath<E, V>) -> (E) -> V {
     return { element in
         return element[keyPath: keyPath]
     }
