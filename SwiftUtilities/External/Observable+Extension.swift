@@ -31,12 +31,24 @@ extension Observable {
     
 }
 
+public func map<T1, T2>(_ transform: @escaping (T1) -> T2) -> (Observable<T1>) -> Observable<T2> {
+    return { $0.map(transform) }
+}
+
+public func flatMap<T1, T2>(_ transform: @escaping (T1) -> Observable<T2>) -> (Observable<T1>) -> Observable<T2> {
+    return { $0.flatMap(transform) }
+}
+
 extension Array where Element: ObservableConvertibleType {
     
     public func toArrayObservable() -> Observable<[Element.E]> {
         return Observable.from(self).concat().toArray()
     }
     
+}
+
+public func toArrayObservable<Element: ObservableConvertibleType>(_ array: [Element]) -> Observable<[Element.E]> {
+    return Observable.from(array).concat().toArray()
 }
 
 extension Array {
